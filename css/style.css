@@ -1,0 +1,13 @@
+ul{
+    list-style-type:decimal;
+}
+
+body {
+    padding: 10px;
+    background-color: rgb(213, 213, 235);
+}
+
+.list-group-item:focus, .list-group-item:hover {
+    color: blue;
+    cursor: pointer;
+}
