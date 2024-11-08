@@ -14,50 +14,30 @@ btn.addEventListener("click", handleClick);
 
 function handleClick() {
     const taskInput = input.value;
-
-
     const taskItem = {
         text: taskInput,
         done: false,
     };
-    tasks.push(taskItem);
-    
+    tasks.push(taskItem); 
     input.value = "";
     render();
-
     
 };
 
 function render() {
-    console.log(tasks);
-    
     const markup = tasks   
         .map(item =>
-            `<li class="list-group-item" data-action="${item.done}}">${item.text}</li>`)
+            `<li class="list-group-item" style="text-decoration: ${item.done ? 'line-through' : 'none'}"> ${item.text}</li>`)
         .join("");
-    list.innerHTML = markup;
+    list.innerHTML = markup; 
 };
 
 listTasks.addEventListener("click", doneTask);
     function doneTask(event) {
-        let doneTask = event.target;
-            doneTask.style.textDecoration = "line-through";
-        doneTask.dataset.action = true;
         const indexDoneTask = Array.from(list.children).indexOf(event.target);
-        tasks[indexDoneTask].done = true;           
+        tasks[indexDoneTask].done = true; 
+        render();
 };
 
 
 
-
-
-
-
-
-
-// let tasks = "";
-    // const markup = `<li class="list-group-item">${taskInput}</li>`;
-    // tasks += markup;
-    // list.innerHTML = tasks;
-
-    
